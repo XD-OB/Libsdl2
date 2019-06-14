@@ -6,7 +6,7 @@
 /*   By: obelouch <OB-96@hotmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/14 18:29:53 by obelouch          #+#    #+#             */
-/*   Updated: 2019/06/14 20:32:42 by obelouch         ###   ########.fr       */
+/*   Updated: 2019/06/14 20:50:54 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 # define SDL_INIT_FLAGS	(SDL_INIT_VIDEO | SDL_INIT_AUDIO)
 # define IMG_INIT_FLAGS (IMG_INIT_PNG | IMG_INIT_JPG)
 
-# include "SDL.h"
-# include "SDL_image.h"
-# include "SDL_mixer.h"
-# include "SDL_ttf"
+# include "./SDL_includes/SDL.h"
+# include "./SDL_includes/SDL_image.h"
+# include "./SDL_includes/SDL_mixer.h"
+# include "./SDL_includes/SDL_ttf.h"
 
 typedef struct		s_sdlenv
 {
