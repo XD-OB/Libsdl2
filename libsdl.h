@@ -6,7 +6,7 @@
 /*   By: obelouch <OB-96@hotmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/14 18:29:53 by obelouch          #+#    #+#             */
-/*   Updated: 2019/06/15 14:48:55 by obelouch         ###   ########.fr       */
+/*   Updated: 2019/06/15 16:17:58 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,12 @@
 # include "./Library/includes/SDL_image.h"
 # include "./Library/includes/SDL_mixer.h"
 # include "./Library/includes/SDL_ttf.h"
+
+typedef struct		s_point
+{
+	int				x;
+	int				y;
+}					t_point;
 
 typedef struct		s_sdlenv
 {
@@ -39,5 +45,9 @@ int					fill_sdlenv(t_sdlenv *env, char *title, int height, int width);
 SDL_Texture			*texture_img(SDL_Renderer *renderer, char *path_img);
 int					load_music(t_sdlenv *env, char *path_music);
 SDL_Rect			create_rect(int height, int width, int y, int x);
+void				drawline_sdl(t_sdlenv env, SDL_Color color, t_point pi, t_point pf);
+void				drawcircle_sdl(t_sdlenv env, SDL_Color color, t_point c, int r);
+SDL_Color			setcolor_sdl(int r, int g, int b, int a);
+t_point				ft_setpoint(int y, int x);
 
 #endif

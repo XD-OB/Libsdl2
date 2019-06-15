@@ -6,7 +6,7 @@
 #    By: obelouch <OB-96@hotmail.com>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/14 20:33:38 by obelouch          #+#    #+#              #
-#    Updated: 2019/06/15 14:49:09 by obelouch         ###   ########.fr        #
+#    Updated: 2019/06/15 16:18:25 by obelouch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ LIBS_A = -L ./Library/lib/ -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer -lft\
 NAME = libsdl.a
 
 LIBSDL = create_rect fill_sdlenv free_sdl init_sdlenv load_music init_sdl texture_img\
+		 ft_setpoint setcolor_sdl drawline_sdl drawcircle_sdl\
 
 SRC = $(addprefix src/, $(addsuffix .c, $(LIBSDL)))
 
