@@ -12,7 +12,9 @@ int		main(void)
 	if (!fill_sdlenv(&env, "Obelouch", 1200, 800))
 		return (EXIT_FAILURE);
 	color = setcolor_sdl(0, 0, 0, 255);
-	drawcircle_sdl(env, color, ft_setpoint(200, 200), 100);
+	//drawcircle_sdl(env, color, ft_setpoint(200, 200), 100);
+	//drawline_sdl(env, color, ft_setpoint(100, 200), ft_setpoint(300, 200));
+	drawboldline_sdl(env, color, ft_setboldline(ft_setpoint(100, 200), ft_setpoint(300, 200), 10));
 	SDL_RenderPresent(env.render);
 	int	pass = 1;
 		while (pass)

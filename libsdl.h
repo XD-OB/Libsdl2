@@ -6,7 +6,7 @@
 /*   By: obelouch <OB-96@hotmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/14 18:29:53 by obelouch          #+#    #+#             */
-/*   Updated: 2019/06/15 16:17:58 by obelouch         ###   ########.fr       */
+/*   Updated: 2019/07/03 03:35:53 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,13 @@ typedef struct		s_sdlenv
 	int				mixer:1;
 }					t_sdlenv;
 
+typedef struct		s_boldline
+{
+	t_point			pi;
+	t_point			pf;
+	int				bold;
+}					t_boldline;
+
 int					init_sdl(t_sdlenv env);
 void				free_sdl(t_sdlenv *env);
 void				init_sdlenv(t_sdlenv *env, int img, int ttf, int mixer);
@@ -45,9 +52,11 @@ int					fill_sdlenv(t_sdlenv *env, char *title, int height, int width);
 SDL_Texture			*texture_img(SDL_Renderer *renderer, char *path_img);
 int					load_music(t_sdlenv *env, char *path_music);
 SDL_Rect			create_rect(int height, int width, int y, int x);
+void				drawboldline_sdl(t_sdlenv env, SDL_Color color, t_boldline boldline);
 void				drawline_sdl(t_sdlenv env, SDL_Color color, t_point pi, t_point pf);
 void				drawcircle_sdl(t_sdlenv env, SDL_Color color, t_point c, int r);
 SDL_Color			setcolor_sdl(int r, int g, int b, int a);
+t_boldline			ft_setboldline(t_point pi, t_point pf, int bold);
 t_point				ft_setpoint(int y, int x);
 
 #endif
