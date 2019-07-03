@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_setboldcircle.c                                 :+:      :+:    :+:   */
+/*   drawboldcircle_sdl.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obelouch <OB-96@hotmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/03 03:24:30 by obelouch          #+#    #+#             */
-/*   Updated: 2019/07/03 03:31:06 by obelouch         ###   ########.fr       */
+/*   Created: 2019/06/15 16:05:19 by obelouch          #+#    #+#             */
+/*   Updated: 2019/06/15 16:20:35 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libsdl.h"
 
-t_bcircle		ft_setboldcircle(t_point c, int r, int bold)
+void	drawdisk_sdl(t_sdlenv env, SDL_Color color, t_point c, int r)
 {
-	t_bcircle	boldcircle;
+	int	tmp_r;
+	int	i;
 
-	boldcircle.c = c;
-	boldcircle.r = r;
-	boldcircle.bold = bold;
-	return (boldcircle);
+	i = 0;
+	tmp_r = r;
+	while (tmp_r >= 0)
+	{
+		drawcircle_sdl(env, color, c, tmp_r);
+		i++;
+		tmp_r--;
+	}
 }

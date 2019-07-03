@@ -31,19 +31,26 @@ void			drawcircle_sdl(t_sdlenv env, SDL_Color color, t_point c, int r)
 
 	p.x = 0;
 	p.y = r;
-	d = 3 - 2 * r;
+	d = r - 1;
 	SDL_SetRenderDrawColor(env.render, color.r, color.g, color.b, color.a);
-	eight_coins(env.render, c, p);
 	while (p.y >= p.x)
 	{
-		p.x++;
-		if (d > 0)
+		eight_coins(env.render, c, p);
+		if (d >= 2 * p.x)
 		{
+			d -=  2 * p.x + 1;
+			p.x++;
+		}
+		else if (d < 2 * (r - p.y))
+		{
+			d += 2 * p.y - 1;
 			p.y--;
-			d += 4 * (p.x - p.y) + 10;
 		}
 		else
-			d += 4 * p.x + 6;
-		eight_coins(env.render, c, p);
+		{
+			d += 2 * (p.y - p.x - 1);
+			p.y--;
+			p.x++;
+		}	
 	}
 }

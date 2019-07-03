@@ -62,10 +62,11 @@ SDL_Rect			create_rect(int height, int width, int y, int x);
 void				drawboldline_sdl(t_sdlenv env, SDL_Color color, t_bline boldline);
 void				drawline_sdl(t_sdlenv env, SDL_Color color, t_point pi, t_point pf);
 void				drawcircle_sdl(t_sdlenv env, SDL_Color color, t_point c, int r);
+void				drawdisk_sdl(t_sdlenv env, SDL_Color color, t_point c, int r);
 void				drawboldcircle_sdl(t_sdlenv env, SDL_Color color, t_bcircle boldcircle);
 SDL_Color			setcolor_sdl(int r, int g, int b, int a);
 t_bline				ft_setboldline(t_point pi, t_point pf, int bold);
-t_bcircle				ft_setboldcircle(t_point c, int r, int bold);
+t_bcircle			ft_setboldcircle(t_point c, int r, int bold);
 t_point				ft_setpoint(int y, int x);
 
 #endif

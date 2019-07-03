@@ -20,8 +20,8 @@ LIBS_A = -L ./Library/lib/ -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer -lft\
 NAME = libsdl.a
 
 LIBSDL = create_rect fill_sdlenv free_sdl init_sdlenv load_music init_sdl texture_img\
-		 ft_setpoint ft_setboldline setcolor_sdl drawline_sdl drawcircle_sdl\
-		 drawboldline_sdl\
+		 ft_setpoint ft_setboldline ft_setboldcircle setcolor_sdl drawline_sdl\
+		 drawcircle_sdl drawboldline_sdl drawboldcircle_sdl drawdisk_sdl ft_setboldcircle\
 
 SRC = $(addprefix src/, $(addsuffix .c, $(LIBSDL)))
 
