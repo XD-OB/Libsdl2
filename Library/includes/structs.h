@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   structs.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: obelouch <OB-96@hotmail.com>               +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/06/28 05:58:26 by obelouch          #+#    #+#             */
+/*   Updated: 2019/06/30 05:05:29 by ishaimou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef STRUCTS_H
 # define STRUCTS_H
 
@@ -40,5 +52,12 @@ typedef struct		s_icase
 	int				n;
 	struct s_icase	*next;
 }					t_icase;
+
+typedef struct		s_chr
+{
+	char			*str;
+	unsigned int	len;
+	struct s_chr	*next;
+}					t_chr;
 
 #endif
