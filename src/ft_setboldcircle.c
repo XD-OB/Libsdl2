@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_setboldline.c                                   :+:      :+:    :+:   */
+/*   ft_setboldcircle.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obelouch <OB-96@hotmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,12 +12,12 @@
 
 #include "libsdl.h"
 
-t_bline			ft_setboldline(t_point pi, t_point pf, int bold)
+t_bcircle		ft_setboldline(t_point c, int r, int bold)
 {
-	t_bline		boldline;
+	t_bcircle	boldcircle;
 
-	boldline.pi = pi;
-	boldline.pf = pf;
-	boldline.bold = bold;
-	return (boldline);
+	boldcircle.c = c;
+	boldcircle.r = r;
+	boldcircle.bold = bold;
+	return (boldcircle);
 }

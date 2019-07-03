@@ -38,12 +38,19 @@ typedef struct		s_sdlenv
 	int				mixer:1;
 }					t_sdlenv;
 
-typedef struct		s_boldline
+typedef struct		s_bline
 {
 	t_point			pi;
 	t_point			pf;
 	int				bold;
-}					t_boldline;
+}					t_bline;
+
+typedef struct		s_bcircle
+{
+	t_point			c;
+	int			r;
+	int			bold;
+}			t_bcircle;
 
 int					init_sdl(t_sdlenv env);
 void				free_sdl(t_sdlenv *env);
@@ -52,11 +59,13 @@ int					fill_sdlenv(t_sdlenv *env, char *title, int height, int width);
 SDL_Texture			*texture_img(SDL_Renderer *renderer, char *path_img);
 int					load_music(t_sdlenv *env, char *path_music);
 SDL_Rect			create_rect(int height, int width, int y, int x);
-void				drawboldline_sdl(t_sdlenv env, SDL_Color color, t_boldline boldline);
+void				drawboldline_sdl(t_sdlenv env, SDL_Color color, t_bline boldline);
 void				drawline_sdl(t_sdlenv env, SDL_Color color, t_point pi, t_point pf);
 void				drawcircle_sdl(t_sdlenv env, SDL_Color color, t_point c, int r);
+void				drawboldcircle_sdl(t_sdlenv env, SDL_Color color, t_bcircle boldcircle);
 SDL_Color			setcolor_sdl(int r, int g, int b, int a);
-t_boldline			ft_setboldline(t_point pi, t_point pf, int bold);
+t_bline				ft_setboldline(t_point pi, t_point pf, int bold);
+t_bcircle				ft_setboldcircle(t_point c, int r, int bold);
 t_point				ft_setpoint(int y, int x);
 
 #endif

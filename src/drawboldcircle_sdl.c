@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_setboldline.c                                   :+:      :+:    :+:   */
+/*   drawboldcircle_sdl.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obelouch <OB-96@hotmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/03 03:24:30 by obelouch          #+#    #+#             */
-/*   Updated: 2019/07/03 03:31:06 by obelouch         ###   ########.fr       */
+/*   Created: 2019/06/15 16:05:19 by obelouch          #+#    #+#             */
+/*   Updated: 2019/06/15 16:20:35 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libsdl.h"
 
-t_bline			ft_setboldline(t_point pi, t_point pf, int bold)
+void			drawboldcircle_sdl(t_sdlenv env, SDL_Color color, t_bcircle b_circle)
 {
-	t_bline		boldline;
+	int	bold;
+	int	r;
+	int	i;
 
-	boldline.pi = pi;
-	boldline.pf = pf;
-	boldline.bold = bold;
-	return (boldline);
+	i = 0;
+	bold = b_circle.bold;
+	r = b_circle.r - bold;
+	while (i < bold)
+	{
+		drawcircle_sdl(env, color, b_circle.c, r);
+		r++;
+		i++;
+	}
 }

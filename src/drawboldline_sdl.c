@@ -12,7 +12,7 @@
 
 #include "libsdl.h"
 
-static void		boldline_delta_y(t_sdlenv env, SDL_Color color, t_boldline boldline)
+static void		boldline_delta_y(t_sdlenv env, SDL_Color color, t_bline boldline)
 {
 	t_point		pi_tmp;
 	t_point		pf_tmp;
@@ -32,7 +32,7 @@ static void		boldline_delta_y(t_sdlenv env, SDL_Color color, t_boldline boldline
 	}
 }
 
-static void		boldline_delta_x(t_sdlenv env, SDL_Color color, t_boldline boldline)
+static void		boldline_delta_x(t_sdlenv env, SDL_Color color, t_bline boldline)
 {
 	t_point		pi_tmp;
 	t_point		pf_tmp;
@@ -52,7 +52,7 @@ static void		boldline_delta_x(t_sdlenv env, SDL_Color color, t_boldline boldline
 	}
 }
 
-void			drawboldline_sdl(t_sdlenv env, SDL_Color color, t_boldline boldline)
+void			drawboldline_sdl(t_sdlenv env, SDL_Color color, t_bline boldline)
 {
 	t_point		delta;
 
