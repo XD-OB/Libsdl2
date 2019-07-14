@@ -20,10 +20,10 @@ LIBS_A = -L ./Library/lib/ -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer -lft\
 NAME = libsdl.a
 
 LIBSDL = create_rect fill_sdlenv free_sdl init_sdlenv load_music init_sdl texture_img\
-		 ft_setpoint ft_setboldline ft_setboldcircle setcolor_sdl drawline_sdl\
-		 drawcircle_sdl drawboldline_sdl drawboldcircle_sdl drawdisk_sdl ft_setboldcircle\
+		 ft_setpoint ft_setboldline setcolor_sdl drawline_sdl drawcircle_sdl\
+		 drawboldline_sdl\
 
-SRC = $(addprefix src/, $(addsuffix .c, $(LIBSDL)))
+SRC = $(addprefix srcs/, $(addsuffix .c, $(LIBSDL)))
 
 OBJ = $(addsuffix .o, $(LIBSDL))
 
@@ -32,6 +32,7 @@ FLAGS = -Wall -Wextra -Werror
 all: $(NAME)
 
 $(NAME):
+		@make -C ./Library/libft
 		@gcc -c $(SRC) $(FLAGS) -I.
 		@ar rc $(NAME) $(OBJ)
 		@echo "$(GREEN)"
@@ -44,10 +45,12 @@ $(NAME):
 		@echo "by:$(RED) obelouch $(EOC) 2019"
 
 clean:
+		@make clean -C ./Library/libft
 		@/bin/rm -f $(OBJ)
 		@echo "$(GREEN)Clean libsdl$(EOC)"
 
 fclean: clean
+		@make fclean -C ./Library/libft
 		@/bin/rm -f $(NAME)
 		@echo "$(RED)Remove libsdl.a :/$(EOC)"
 
