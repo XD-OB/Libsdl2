@@ -20,5 +20,6 @@ SDL_Texture		*ttf_texture(SDL_Renderer *render, TTF_Font *font,
 
 	surface = TTF_RenderText_Blended(font, str, color);
 	text = SDL_CreateTextureFromSurface(render, surface);
+	SDL_FreeSurface(surface);
 	return (text);
 }
