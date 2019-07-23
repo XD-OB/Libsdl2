@@ -12,15 +12,6 @@
 
 #include "libsdl.h"
 
-static void		swap_pt(t_point *p1, t_point *p2)
-{
-	t_point		*tmp;
-
-	tmp = p1;
-	p1 = p2;
-	p2 = tmp;
-}
-
 static void		e_modif(double *e, t_point *delta, t_point *pt, int flag)
 {
 	if (flag == 1 || flag == -1)
@@ -41,7 +32,9 @@ static void		trace_pdy(t_sdlenv env, t_point pi, t_point pf)
 	double		e;
 
 	delta.x = pf.x - pi.x;
-	delta.y = ABS(pf.y - pi.y);
+	delta.y = pf.y - pi.y;
+	if (delta.y < 0)
+		delta.y *= -1;
 	if (delta.x > delta.y)
 	{
 		e = delta.x / 2;
@@ -68,7 +61,9 @@ static void		trace_ndy(t_sdlenv env, t_point pi, t_point pf)
 	double		e;
 
 	delta.x = pf.x - pi.x;
-	delta.y = ABS(pf.y - pi.y);
+	delta.y = pf.y - pi.y;
+	if (delta.y < 0)
+		delta.y *= -1;
 	if (delta.x > delta.y)
 	{
 		e = delta.x / 2;

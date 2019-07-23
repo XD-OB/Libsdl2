@@ -56,6 +56,10 @@ void			drawboldline_sdl(t_sdlenv env, SDL_Color color, t_bline boldline)
 {
 	t_point		delta;
 
+	if (boldline.pi.x > boldline.pf.x)
+		swap_pt(&(boldline.pi), &(boldline.pf));
+	else if (boldline.pi.y > boldline.pf.y)
+		swap_pt(&(boldline.pi), &(boldline.pf));
 	delta.x = boldline.pf.x - boldline.pi.x;
 	delta.y = boldline.pf.y - boldline.pi.y;
 	if (delta.x > delta.y)
