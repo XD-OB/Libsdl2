@@ -19,12 +19,11 @@ LIBS_A = -L ./Library/lib/ -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer -lft\
 
 NAME = libsdl.a
 
-LIBSDL = sdl_bcircle sdl_bline sdl_bquad sdl_brect_e sdl_fsquare_a sdl_fsquare_c\
-		 sdl_circle sdl_disk sdl_disk sdl_line sdl_quad\
+LIBSDL = sdl_bcircle sdl_bquad sdl_brect_e sdl_fsquare_a sdl_fsquare_c\
+		 sdl_bline sdl_circle sdl_disk sdl_disk sdl_line sdl_quad\
 		 sdl_rect_a sdl_rect_c sdl_rect_e sdl_square_a sdl_square_c\
 		 sdl_init sdl_close sdl_color sdl_rgb sdlenv_init sdlenv_fill\
-		 pt_new pt_swap pt_linterp rect_new bline_new bcircle_new\
-		 ttf_texture img_texture load_music\
+		 rect_new bline_new bcircle_new ttf_texture img_texture load_music\
 
 SRC = $(addprefix srcs/, $(addsuffix .c, $(LIBSDL)))
 

@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pt_new.c                                           :+:      :+:    :+:   */
+/*   pt_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obelouch <OB-96@hotmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/15 15:26:10 by obelouch          #+#    #+#             */
-/*   Updated: 2019/07/24 20:29:39 by obelouch         ###   ########.fr       */
+/*   Created: 2019/07/24 20:28:07 by obelouch          #+#    #+#             */
+/*   Updated: 2019/07/24 20:28:32 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libsdl.h"
+#include "libft.h"
 
-t_point			pt_new(int y, int x)
+void			pt_swap(t_point *p1, t_point *p2)
 {
-	t_point		pt;
+	t_point		tmp;
 
-	pt.x = x;
-	pt.y = y;
-	return (pt);
+	tmp = pt_new(p1->y, p1->x);
+	p1->y = p2->y;
+	p1->x = p2->x;
+	p2->y = tmp.y;
+	p2->x = tmp.x;
 }

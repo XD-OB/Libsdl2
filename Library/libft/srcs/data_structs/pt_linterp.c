@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pt_swap.c                                          :+:      :+:    :+:   */
+/*   pt_linterp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obelouch <OB-96@hotmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/24 20:28:07 by obelouch          #+#    #+#             */
-/*   Updated: 2019/07/24 20:28:32 by obelouch         ###   ########.fr       */
+/*   Created: 2019/07/24 21:03:14 by obelouch          #+#    #+#             */
+/*   Updated: 2019/07/24 21:03:16 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libsdl.h"
+#include "libft.h"
 
-void			pt_swap(t_point *p1, t_point *p2)
+t_point			pt_linterp(t_point p1, t_point p2, int a, int t)
 {
-	t_point		tmp;
+	t_point		p;
 
-	tmp = pt_new(p1->y, p1->x);
-	p1->y = p2->y;
-	p1->x = p2->x;
-	p2->y = tmp.y;
-	p2->x = tmp.x;
+	p.x = ((float)((p2.x - p1.x) * a) / t) + p1.x;
+	p.y = ((float)((p2.y - p1.y) * a) / t) + p1.y;
+	return (p);
 }

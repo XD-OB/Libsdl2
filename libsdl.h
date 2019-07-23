@@ -22,12 +22,6 @@
 # include "./Library/includes/SDL_mixer.h"
 # include "./Library/includes/SDL_ttf.h"
 
-typedef struct		s_point
-{
-	int				x;
-	int				y;
-}					t_point;
-
 typedef struct		s_sdlenv
 {
 	SDL_Window		*window;
@@ -89,8 +83,5 @@ SDL_Color			sdl_rgb(int r, int g, int b);
 SDL_Rect			rect_new(int height, int width, int y, int x);
 t_bline				bline_new(t_point pi, t_point pf, int bold);
 t_bcircle			bcircle_new(t_point c, int r, int bold);
-t_point				pt_new(int y, int x);
-void				pt_swap(t_point *p1, t_point *p2);
-t_point				pt_linterp(t_point p1, t_point p2, int a, int t);
 
 #endif
