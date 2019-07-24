@@ -1,22 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pt_linterp.c                                       :+:      :+:    :+:   */
+/*   sdl_quad.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obelouch <OB-96@hotmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/24 21:03:14 by obelouch          #+#    #+#             */
-/*   Updated: 2019/07/24 21:03:16 by obelouch         ###   ########.fr       */
+/*   Created: 2019/07/24 20:59:31 by obelouch          #+#    #+#             */
+/*   Updated: 2019/07/24 20:59:35 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libsdl.h"
 
-t_point			pt_linterp(t_point p1, t_point p2, int a, int t)
+void			sdl_quad(t_sdlenv env, SDL_Color color, int n_pts, ...)
 {
-	t_point		p;
+	va_list		args;
+	t_point		*p;
+	int			i;
 
-	p.x = ((float)((p2.x - p1.x) * a) / t) + p1.x;
-	p.y = ((float)((p2.y - p1.y) * a) / t) + p1.y;
-	return (p);
+	if (n_pts > 1)
+	{
+		i = 0;
+		if (!(p = (t_point*)malloc(sizeof(t_point) * n_pts)))
+			return ;
+		va_start(args, n_pts);
+		while (i < n_pts)
+			p[i++] = va_arg(args, t_point);
+		i = 0;
+		while (++i < n_pts)
+			sdl_line(env, color, p[i - 1], p[i]);
+		sdl_line(env, color, p[0], p[n_pts - 1]);
+		va_end(args);
+		free(p);
+	}
 }

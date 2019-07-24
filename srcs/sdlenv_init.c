@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_setboldcircle.c                                 :+:      :+:    :+:   */
+/*   sdlenv_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obelouch <OB-96@hotmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/03 03:24:30 by obelouch          #+#    #+#             */
-/*   Updated: 2019/07/03 03:31:06 by obelouch         ###   ########.fr       */
+/*   Created: 2019/07/24 20:59:04 by obelouch          #+#    #+#             */
+/*   Updated: 2019/07/24 20:59:17 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libsdl.h"
+#include "../libsdl.h"
 
-t_bcircle		ft_setboldcircle(t_point c, int r, int bold)
+void	sdlenv_init(t_sdlenv *env, int img, int ttf, int mixer)
 {
-	t_bcircle	boldcircle;
-
-	boldcircle.c = c;
-	boldcircle.r = r;
-	boldcircle.bold = bold;
-	return (boldcircle);
+	env->img = (img) ? 1 : 0;
+	env->ttf = (ttf) ? 1 : 0;
+	env->mixer = (mixer) ? 1 : 0;
+	env->window = NULL;
+	env->render = NULL;
+	env->music = NULL;
 }

@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_sdlenv.c                                    :+:      :+:    :+:   */
+/*   pt_new.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obelouch <OB-96@hotmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/14 19:57:04 by obelouch          #+#    #+#             */
-/*   Updated: 2019/06/14 20:11:27 by obelouch         ###   ########.fr       */
+/*   Created: 2019/06/15 15:26:10 by obelouch          #+#    #+#             */
+/*   Updated: 2019/07/24 20:29:39 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libsdl.h"
+#include "libsdl.h"
 
-void			init_sdlenv(t_sdlenv *env, int img, int ttf, int mixer)
+t_point			pt_new(int y, int x)
 {
-	env->img = (img) ? 1 : 0;
-	env->ttf = (ttf) ? 1 : 0;
-	env->mixer = (mixer) ? 1 : 0;
-	env->window = NULL;
-	env->render = NULL;
-	env->music = NULL;
+	t_point		pt;
+
+	pt.x = x;
+	pt.y = y;
+	return (pt);
 }

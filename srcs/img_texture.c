@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   texture_img.c                                      :+:      :+:    :+:   */
+/*   img_texture.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obelouch <OB-96@hotmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/14 20:01:25 by obelouch          #+#    #+#             */
-/*   Updated: 2019/06/14 20:32:01 by obelouch         ###   ########.fr       */
+/*   Updated: 2019/07/24 19:47:12 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libsdl.h"
 
-SDL_Texture			*texture_img(SDL_Renderer *renderer, char *path)
+SDL_Texture			*img_texture(SDL_Renderer *renderer, char *path)
 {
 	SDL_Surface		*tmp;
 	SDL_Texture		*texture;

@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pt_linterp.c                                       :+:      :+:    :+:   */
+/*   bcircle_new.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obelouch <OB-96@hotmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/24 21:03:14 by obelouch          #+#    #+#             */
-/*   Updated: 2019/07/24 21:03:16 by obelouch         ###   ########.fr       */
+/*   Created: 2019/07/03 03:24:30 by obelouch          #+#    #+#             */
+/*   Updated: 2019/07/24 20:31:06 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libsdl.h"
 
-t_point			pt_linterp(t_point p1, t_point p2, int a, int t)
+t_bcircle		bcircle_new(t_point c, int r, int bold)
 {
-	t_point		p;
+	t_bcircle	bcircle;
 
-	p.x = ((float)((p2.x - p1.x) * a) / t) + p1.x;
-	p.y = ((float)((p2.y - p1.y) * a) / t) + p1.y;
-	return (p);
+	bcircle.c = c;
+	bcircle.r = r;
+	bcircle.bold = bold;
+	return (bcircle);
 }

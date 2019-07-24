@@ -6,7 +6,7 @@
 #    By: obelouch <OB-96@hotmail.com>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/14 20:33:38 by obelouch          #+#    #+#              #
-#    Updated: 2019/07/03 03:34:18 by obelouch         ###   ########.fr        #
+#    Updated: 2019/07/24 20:55:42 by obelouch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,12 +19,12 @@ LIBS_A = -L ./Library/lib/ -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer -lft\
 
 NAME = libsdl.a
 
-LIBSDL = create_rect fill_sdlenv free_sdl init_sdlenv load_music init_sdl texture_img\
-		 ft_setpoint ft_setboldline setcolor_sdl drawline_sdl drawcircle_sdl\
-		 drawboldline_sdl drawdisk_sdl ttf_texture drawquad_sdl drawboldquad_sdl\
-		 swap_pt drawrect_sdl drawboldrect_sdl drawrect_sdl_c drawrect_sdl_b\
-		 drawsquare_sdl drawsquare_sdl_c drawfillsquare_sdl drawfillsquare_sdl_c\
-		pt_linterp
+LIBSDL = sdl_bcircle sdl_bline sdl_bquad sdl_brect_e sdl_fsquare_a sdl_fsquare_c\
+		 sdl_circle sdl_disk sdl_disk sdl_line sdl_quad\
+		 sdl_rect_a sdl_rect_c sdl_rect_e sdl_square_a sdl_square_c\
+		 sdl_init sdl_close sdl_color sdl_rgb sdlenv_init sdlenv_fill\
+		 pt_new pt_swap pt_linterp rect_new bline_new bcircle_new\
+		 ttf_texture img_texture load_music\
 
 SRC = $(addprefix srcs/, $(addsuffix .c, $(LIBSDL)))
 

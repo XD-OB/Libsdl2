@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_sdl.c                                         :+:      :+:    :+:   */
+/*   pt_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obelouch <OB-96@hotmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/14 20:19:48 by obelouch          #+#    #+#             */
-/*   Updated: 2019/06/14 20:27:09 by obelouch         ###   ########.fr       */
+/*   Created: 2019/07/24 20:28:07 by obelouch          #+#    #+#             */
+/*   Updated: 2019/07/24 20:28:32 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libsdl.h"
+#include "libsdl.h"
 
-void		free_sdl(t_sdlenv *env)
+void			pt_swap(t_point *p1, t_point *p2)
 {
-	if (env->music)
-		Mix_FreeMusic(env->music);
-	if (env->mixer)
-		Mix_CloseAudio();
-	if (env->ttf)
-		TTF_Quit();
-	if (env->img)
-		IMG_Quit();
-	SDL_DestroyRenderer(env->render);
-	SDL_DestroyWindow(env->window);
-	SDL_Quit();
+	t_point		tmp;
+
+	tmp = pt_new(p1->y, p1->x);
+	p1->y = p2->y;
+	p1->x = p2->x;
+	p2->y = tmp.y;
+	p2->x = tmp.x;
 }

@@ -1,6 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ttf_texture.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: obelouch <OB-96@hotmail.com>               +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/07/24 20:58:09 by obelouch          #+#    #+#             */
+/*   Updated: 2019/07/24 20:58:35 by obelouch         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libsdl.h"
 
-SDL_Texture		*ttf_texture(SDL_Renderer *render, TTF_Font *font, char *str, SDL_Color color)
+SDL_Texture		*ttf_texture(SDL_Renderer *render, TTF_Font *font,
+									char *str, SDL_Color color)
 {
 	SDL_Surface	*surface;
 	SDL_Texture	*text;

@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   setcolor_sdl.c                                     :+:      :+:    :+:   */
+/*   sdl_rect_e.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obelouch <OB-96@hotmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/15 15:23:36 by obelouch          #+#    #+#             */
-/*   Updated: 2019/06/15 15:24:50 by obelouch         ###   ########.fr       */
+/*   Created: 2019/07/24 20:04:40 by obelouch          #+#    #+#             */
+/*   Updated: 2019/07/24 20:13:17 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libsdl.h"
 
-SDL_Color	setcolor_sdl(int r, int g, int b, int a)
+void			sdl_rect_e(t_sdlenv env, SDL_Color color, t_point a, t_point b)
 {
-	SDL_Color	color;
+	t_point		ab;
+	t_point		ba;
 
-	color.r = r;
-	color.g = g;
-	color.b = b;
-	color.a = a;
-	return (color);
+	ab = pt_new(a.y, b.x);
+	ba = pt_new(b.y, a.x);
+	sdl_line(env, color, a, ab);
+	sdl_line(env, color, ab, b);
+	sdl_line(env, color, b, ba);
+	sdl_line(env, color, ba, a);
 }

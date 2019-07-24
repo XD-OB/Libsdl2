@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_setpoint.c                                      :+:      :+:    :+:   */
+/*   sdl_square_a.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obelouch <OB-96@hotmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/15 15:26:10 by obelouch          #+#    #+#             */
-/*   Updated: 2019/06/15 15:26:58 by obelouch         ###   ########.fr       */
+/*   Created: 2019/07/24 20:24:15 by obelouch          #+#    #+#             */
+/*   Updated: 2019/07/24 20:25:21 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libsdl.h"
 
-t_point		ft_setpoint(int y, int x)
+void			sdl_square_a(t_sdlenv env, SDL_Color color, t_point a, int l)
 {
-	t_point		point;
+	t_point		p[3];
 
-	point.x = x;
-	point.y = y;
-	return (point);
+	p[0] = pt_new(a.y, a.x + l);
+	p[1] = pt_new(a.y + l, a.x + l);
+	p[2] = pt_new(a.y + l, a.x);
+	sdl_line(env, color, a, p[0]);
+	sdl_line(env, color, p[0], p[1]);
+	sdl_line(env, color, p[1], p[2]);
+	sdl_line(env, color, p[2], a);
 }

@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_setboldline.c                                   :+:      :+:    :+:   */
+/*   sdl_close.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obelouch <OB-96@hotmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/03 03:24:30 by obelouch          #+#    #+#             */
-/*   Updated: 2019/07/03 03:31:06 by obelouch         ###   ########.fr       */
+/*   Created: 2019/07/24 19:44:21 by obelouch          #+#    #+#             */
+/*   Updated: 2019/07/24 19:44:23 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libsdl.h"
+#include "../libsdl.h"
 
-t_bline			ft_setboldline(t_point pi, t_point pf, int bold)
+void		sdl_close(t_sdlenv *env)
 {
-	t_bline		boldline;
-
-	boldline.pi = pi;
-	boldline.pf = pf;
-	boldline.bold = bold;
-	return (boldline);
+	if (env->music)
+		Mix_FreeMusic(env->music);
+	if (env->mixer)
+		Mix_CloseAudio();
+	if (env->ttf)
+		TTF_Quit();
+	if (env->img)
+		IMG_Quit();
+	SDL_DestroyRenderer(env->render);
+	SDL_DestroyWindow(env->window);
+	SDL_Quit();
 }

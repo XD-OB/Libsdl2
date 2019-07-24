@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fill_sdlenv.c                                      :+:      :+:    :+:   */
+/*   sdlenv_fill.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obelouch <OB-96@hotmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/14 19:13:52 by obelouch          #+#    #+#             */
-/*   Updated: 2019/06/15 14:32:14 by obelouch         ###   ########.fr       */
+/*   Created: 2019/07/24 19:46:11 by obelouch          #+#    #+#             */
+/*   Updated: 2019/07/24 20:58:58 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libsdl.h"
 
-static int		error_sdlenv(t_sdlenv *env, int type)
+static int	error_sdlenv(t_sdlenv *env, int type)
 {
 	if (type == 0)
-		ft_dprintf(2, "%{RED}Error will creating the Window: %{eoc}%s\n", SDL_GetError());
+		ft_dprintf(2, "%{RED}Error will creating the Window: %{eoc}%s\n",
+				SDL_GetError());
 	else
 	{
-		ft_dprintf(2, "%{RED}Error will creating the Renderer: %{eoc}%s\n", SDL_GetError());
+		ft_dprintf(2, "%{RED}Error will creating the Renderer: %{eoc}%s\n",
+				SDL_GetError());
 		SDL_DestroyWindow(env->window);
 	}
 	if (env->img)
@@ -31,7 +33,7 @@ static int		error_sdlenv(t_sdlenv *env, int type)
 	return (0);
 }
 
-int			fill_sdlenv(t_sdlenv *env, char *title, int height, int width)
+int			sdlenv_fill(t_sdlenv *env, char *title, int height, int width)
 {
 	env->window = SDL_CreateWindow(
 			title,

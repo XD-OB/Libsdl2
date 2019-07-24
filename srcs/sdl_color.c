@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pt_linterp.c                                       :+:      :+:    :+:   */
+/*   sdl_color.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obelouch <OB-96@hotmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/24 21:03:14 by obelouch          #+#    #+#             */
-/*   Updated: 2019/07/24 21:03:16 by obelouch         ###   ########.fr       */
+/*   Created: 2019/07/24 20:33:39 by obelouch          #+#    #+#             */
+/*   Updated: 2019/07/24 20:55:10 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libsdl.h"
 
-t_point			pt_linterp(t_point p1, t_point p2, int a, int t)
+SDL_Color		sdl_color(int r, int g, int b, int a)
 {
-	t_point		p;
+	SDL_Color	color;
 
-	p.x = ((float)((p2.x - p1.x) * a) / t) + p1.x;
-	p.y = ((float)((p2.y - p1.y) * a) / t) + p1.y;
-	return (p);
+	color.r = r;
+	color.g = g;
+	color.b = b;
+	color.a = a;
+	return (color);
 }

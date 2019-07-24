@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_sdl.c                                         :+:      :+:    :+:   */
+/*   sdl_init.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obelouch <OB-96@hotmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/14 18:39:46 by obelouch          #+#    #+#             */
-/*   Updated: 2019/06/15 14:32:05 by obelouch         ###   ########.fr       */
+/*   Created: 2019/07/24 19:42:53 by obelouch          #+#    #+#             */
+/*   Updated: 2019/07/24 19:42:56 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static int			error_manager(t_sdlenv env, int type)
 	return (0);
 }
 
-int					init_sdl(t_sdlenv env)
+int					sdl_init(t_sdlenv env)
 {
 	if (SDL_Init(SDL_INIT_FLAGS) != 0)
 		return (error_manager(env, 0));

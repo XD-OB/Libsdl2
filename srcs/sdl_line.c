@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   drawline_sdl.c                                     :+:      :+:    :+:   */
+/*   sdl_line.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obelouch <OB-96@hotmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/15 14:59:56 by obelouch          #+#    #+#             */
-/*   Updated: 2019/06/15 16:16:55 by obelouch         ###   ########.fr       */
+/*   Updated: 2019/07/24 20:49:39 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,13 +84,13 @@ static void		trace_ndy(t_sdlenv env, t_point pi, t_point pf)
 	}
 }
 
-void			drawline_sdl(t_sdlenv env, SDL_Color color, t_point pi, t_point pf)
+void			sdl_line(t_sdlenv env, SDL_Color color, t_point pi, t_point pf)
 {
 	t_point		delta;
 
 	SDL_SetRenderDrawColor(env.render, color.r, color.g, color.b, color.a);
 	if (pi.x > pf.x)
-		swap_pt(&pi, &pf);
+		pt_swap(&pi, &pf);
 	delta.x = pf.x - pi.x;
 	delta.y = pf.y - pi.y;
 	SDL_RenderDrawPoint(env.render, pi.x, pi.y);
