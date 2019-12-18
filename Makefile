@@ -20,22 +20,19 @@ LIBS_A = -L ./Library/lib/ -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer -lft\
 NAME = libsdl.a
 
 LIBSDL = sdl_bcircle sdl_bquad sdl_brect_e sdl_fsquare_a sdl_fsquare_c\
-		 sdl_bline sdl_circle sdl_disk sdl_disk sdl_line sdl_quad\
+		 sdl_bline sdl_circle sdl_disk sdl_line sdl_quad\
 		 sdl_rect_a sdl_rect_c sdl_rect_e sdl_square_a sdl_square_c\
 		 sdl_init sdl_close sdl_color sdl_rgb sdlenv_init sdlenv_fill\
 		 rect_new bline_new bcircle_new ttf_texture img_texture load_music\
 
-SRC = $(addprefix srcs/, $(addsuffix .c, $(LIBSDL)))
-
-OBJ = $(addsuffix .o, $(LIBSDL))
+CC = gcc
 
 FLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
-$(NAME):
+$(NAME): $(OBJ)
 		@make -C ./Library/libft
-		@gcc -c $(SRC) $(FLAGS) -I.
 		@ar rc $(NAME) $(OBJ)
 		@echo "$(GREEN)"
 	  	@echo "   _     _ _             _ _  "
@@ -45,6 +42,9 @@ $(NAME):
 		@echo "  | |___| | |_| \__ \ |_| | | "
 		@echo "  \_____/_|_.__/|___/\__,_|_| $(EOC)"
 		@echo "by:$(RED) obelouch $(EOC) 2019"
+
+$(OBJ): %.o: srcs/%.c
+	@$(CC) $(FLAGS) -c $< -o $@ -I.
 
 clean:
 		@make clean -C ./Library/libft
