@@ -6,7 +6,7 @@
 #    By: obelouch <OB-96@hotmail.com>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/14 20:33:38 by obelouch          #+#    #+#              #
-#    Updated: 2019/07/24 20:55:42 by obelouch         ###   ########.fr        #
+#    Updated: 2020/01/11 12:41:17 by vegeta           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,10 @@ EOC = \033[1;0m
 LIBS_H = -I ./Library/includes/
 LIBS_A = -L ./Library/lib/ -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer -lft\
 
+CC = gcc
+
+FLAGS = -Wall -Wextra -Werror
+
 NAME = libsdl.a
 
 LIBSDL = sdl_bcircle sdl_bquad sdl_brect_e sdl_fsquare_a sdl_fsquare_c\
@@ -25,15 +29,14 @@ LIBSDL = sdl_bcircle sdl_bquad sdl_brect_e sdl_fsquare_a sdl_fsquare_c\
 		 sdl_init sdl_close sdl_color sdl_rgb sdlenv_init sdlenv_fill\
 		 rect_new bline_new bcircle_new ttf_texture img_texture load_music\
 
-CC = gcc
-
-FLAGS = -Wall -Wextra -Werror
+OBJ = $(addprefix srcs/, $(addsuffix .o, $(LIBSDL)))
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 		@make -C ./Library/libft
 		@ar rc $(NAME) $(OBJ)
+		@ranlib $(NAME)
 		@echo "$(GREEN)"
 	  	@echo "   _     _ _             _ _  "
 		@echo "  | |   |_| |           | | | "
@@ -43,7 +46,7 @@ $(NAME): $(OBJ)
 		@echo "  \_____/_|_.__/|___/\__,_|_| $(EOC)"
 		@echo "by:$(RED) obelouch $(EOC) 2019"
 
-$(OBJ): %.o: srcs/%.c
+$(OBJ): srcs/%.o: srcs/%.c
 	@$(CC) $(FLAGS) -c $< -o $@ -I.
 
 clean:
